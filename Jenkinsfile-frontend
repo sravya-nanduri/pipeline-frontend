@@ -3,7 +3,7 @@ pipeline{
         stages{
             stage('git pull'){
                 steps{
-                git url: 'https://github.com/sravya-nanduri/rent-a-car.git', branch:'master'
+                git url: 'https://github.com/sravya-nanduri/new-react-app', branch:'master'
                 }
             }
             stage('building the app'){
