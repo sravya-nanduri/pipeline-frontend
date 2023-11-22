@@ -15,7 +15,11 @@ pipeline{
               }
             }
             stage('copying the build file to var'){
+                steps{
+                sh '''
                 scp -r build user@43.205.138.82:/var/www/html
+                '''
+           }
             }
             }
         }
