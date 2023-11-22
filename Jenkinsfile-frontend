@@ -1,27 +1,30 @@
 pipeline{
-    agent any{
+    agent any
         stages{
             stage('git pull'){
                 steps{
-                    git url: 'https://github.com/sravya-nanduri/nodejs-new.git', branch:'master'
+                git url: 'https://github.com/sravya-nanduri/rent-a-car.git', branch:'master'
                 }
-            stage('installing nodemodules '){
-              steps{
+            }
+            stage('building the app'){
+             steps{
                 sh '''
                 sudo su -
                 npm install
                 npm run build
                 '''
-              }
+             }
+
             }
-            stage('copying the build file to var'){
+            stage('Copying the build file'){
                 steps{
                 sh '''
                 scp -r build user@43.205.138.82:/var/www/html
+
+
                 '''
-           }
-            }
+                }
             }
         }
-    }
 }
+
