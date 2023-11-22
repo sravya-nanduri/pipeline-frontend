@@ -1,0 +1,18 @@
+pipeline{
+    agent any{
+        stages{
+            stage('git pull'){
+                steps{
+                    git url: 'https://github.com/sravya-nanduri/new-react-app.git', branch:'master'
+                }
+            stage('installing nodemodules '){
+                sh '''
+                sudo su -
+                npm install
+                node index.js
+                '''
+            }
+            }
+        }
+    }
+}
